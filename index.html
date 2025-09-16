@@ -3,44 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eone Xander Concepcion | Portfolio</title>
   <link rel="stylesheet" href="../css/style.css">
-  <title>Eone: A Portfolio Website</title>
-  
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- Navbar -->
   <header>
-    <h1>John Doe</h1>
-    <p>Aspiring Web Developer</p>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section>
-      <h2>About Me</h2>
-      <p>I am a self-taught web developer passionate about building responsive and user-friendly websites.</p>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Simple Portfolio Website</h3>
-      <p>A clean and minimal personal portfolio using HTML and CSS.</p>
-      <a href="#">View Project</a>
-    </div>
-    <div class="project">
-      <h3>To-Do List App</h3>
-      <p>Basic JavaScript to-do list to keep track of tasks.</p>
-      <a href="#">View Project</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hello and Welcome.</h1>
+      <h2>I’m <span class="highlight">Eone Xander F. Concepcion</span></h2>
+      <p>
+        An Aspiring UI Designer and Full-Stack Developer<br>
+        packed with knowledge, skills and tools in the IT World.
+      </p>
+      <a href="assests/CONCEPCION_RESUME.pdf" class="btn" download>Download Resume</a>
     </div>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Email: johndoe@example.com</p>
-    <p>GitHub: <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></p>
-  </section>
+ <section id="about" class="about hidden">
+  <div class="about-text">
+    <h2>WHO AM I?</h2>
+    <p>
+      I’m Eone, a fresh graduate at Quezon City University with a degree on 
+      Bachelor of Science in Information Technology. I graduated with a GWA 
+      1.63 in which I received a Latin Award Title Cum laude.
+    </p>
+    <p>
+      I’ve acquired many skills during my time at my university but I specialize 
+      more as an UI/UX designer and as a Full Stack Developer.
+    </p>
+    <p>
+      I strive to be efficient and productive to my work and to my employers. 
+      Eager to discover and learn more and improve my skills but also, to be adaptable 
+      on any new technologies and opportunities along the way.
+    </p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-google"></i></a>
+    </div>
+  </div>
+  <div class="about-img">
+    <img src="assests/images/grad-pic.png" alt="Eone Xander F. Concepcion">
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 John Doe. All rights reserved.</p>
-  </footer>
+<section id="skills" class="portfolio hidden">
+  <h2>EXPLORE MY PORTFOLIO</h2>
+  <div class="cards">
+    <div class="card hidden">
+      <h3>My Skills</h3>
+    </div>
+    <div class="card hidden">
+      <h3>My Projects</h3>
+    </div>
+    <div class="card hidden">
+      <h3>My Contact</h3>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <footer id="contact" class="hidden">
+    <div class="contact">
+        <h3>CONTACT</h3>
+        <p>Email</p>
+        <p>concepcion.eonexander.04222003@gmail.com</p>
+        <p>Phone Number</p>
+        <p>(63)9617288253</p>
+    </div>
+    <div class="footer-links">
+        <h3>About Me</h3>
+        <span><a href="#skills">Skills</a></span>
+        <span><a href="#projects">Projects</a></span>
+        <span><a href="#">Experience</a></span>
+        <span><a href="#contact">Contact Me</a></span>
+    </div>
+    <p class="copyright">
+        © 2025 Eone Xander Concepcion. All rights reserved.
+    </p>
+</footer>
 </body>
 </html>
-

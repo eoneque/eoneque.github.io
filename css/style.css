@@ -1,34 +1,288 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .project {
-      margin-bottom: 1.5rem;
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: white;
-    }
-    a {
-      color: #007acc;
-    }
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(#111, #222);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Added z-index to ensure navbar is on top */
+    
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+ 
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar.scrolled a {
+    color: #fff;
+}
+
+/* Navbar links */
+.navbar a {
+  position: relative; /* This is crucial for positioning the pseudo-element */
+  color: #000000;
+  text-decoration: none; /* Remove the default underline */
+  font-weight: bold;
+}
+
+/* Create the pseudo-element for the animated underline */
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Initially hidden */
+  height: 2px; /* Thickness of the underline */
+  bottom: -5px; /* Adjust the distance from the text */
+  left: 0;
+  background-color: #000000; /* Color of the underline */
+  transition: width 0.3s ease-out; /* Animate the width */
+}
+
+/* Hover state: make the underline appear */
+.navbar a:hover::after {
+  width: 100%; /* Expands the underline to full width on hover */
+}
+
+/* General Navbar Hover */
+.navbar a:hover {
+  color: #1a1a1a;
+  /* Keep your other hover effects if you want */
+}
+
+/* Scrolled state */
+.navbar.scrolled a::after {
+  background-color: #fff; /* Match the underline color to the text */
+}
+
+/* Scrolled hover state */
+.navbar.scrolled a:hover {
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(#ebebeb, #fff);
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero h2 {
+    margin: 1rem 0;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #000;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    border: 3px solid #000000;
+    border-radius: 25px;
+    color: #000000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Scroll Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hidden:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.hidden:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer Animations */
+footer.hidden {
+  opacity: 0;
+  transform: translateY(50px); /* Moves the footer down by 50px */
+}
+
+footer.show {
+  opacity: 1;
+  transform: translateY(0); /* Slides the footer back into position */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* The animation transition */
+}
+
+/* About Section */
+.about {
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+}
+
+.about h2 {
+    font-size: 2rem;
+}
+
+.about-text {
+    flex: 1;
+    padding: 1rem;
+}
+
+.about-img {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+}
+
+.about-img img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Socials */
+.socials a {
+    color: #fff;
+    font-size: 38px;
+    margin-right: 10px;
+    transition: color 0.3s, transform 0.3s;
+    padding-left: 0.5rem;
+}
+
+.socials a:hover {
+    color: #878787;
+    transform: scale(1.2);
+}
+
+/* Portfolio */
+.portfolio {
+
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: #333;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 250px;
+    height: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    font-family: sans-serif;
+    flex-wrap: wrap;
+    background: #fff;
+    color: #000;
+    height: auto;
+}
+
+footer .contact,
+footer .footer-links {
+    flex-basis: 45%;
+}
+
+footer h3 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer .contact p {
+    margin: 0.25rem 0;
+    margin-left: 5%;
+}
+
+footer .footer-links {
+    text-align: right;
+}
+
+footer .footer-links h3 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+footer .footer-links span {
+    margin-left: 1.5rem;
+}
+
+footer .footer-links a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+footer .copyright {
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
