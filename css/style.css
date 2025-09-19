@@ -285,3 +285,287 @@ footer .copyright {
     margin-top: 2rem;
     font-size: 0.9rem;
 }
+
+/* --- Styles for the Skills page only --- */
+
+/* Body-level styles for the skills page */
+
+/* Footer background for Skills page */
+.skills-body footer {
+    background: linear-gradient(#111, #222);
+    color: #fff;
+}
+
+/* Footer links on Skills page */
+.skills-body footer .footer-links a,
+.skills-body footer .contact p,
+.skills-body footer h3,
+.skills-body footer .copyright {
+    color: #fff;
+}
+
+/* Footer underline on Skills page */
+.skills-body footer .footer-links a::after {
+    background-color: #fff;
+}
+
+.skills-body {
+    font-family: 'Inter', sans-serif; /* Use Inter font as requested */
+}
+
+/* Hero Section specific to Skills page */
+.skills-body .hero {
+    min-height: 50vh; /* Reduced height as in Figma */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligned to the left */
+    text-align: left;
+    padding: 2rem 5%;
+    background: linear-gradient(#ebebeb, #fff);
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+.skills-body .hero-text {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 5rem;
+}
+
+.skills-body .hero h1 {
+    font-size: 3.5rem; /* Larger font for SKILLS */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.skills-body .hero h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.skills-body .hero p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 600px;
+    color: #555;
+}
+
+/* Navbar on Skills page */
+.skills-body .navbar a {
+    color: #000;
+}
+.skills-body .navbar a::after {
+    background-color: #000;
+}
+.skills-body .navbar.scrolled a {
+    color: #fff;
+}
+.skills-body .navbar.scrolled a::after {
+    background-color: #fff;
+}
+
+/* --- New Technical Skills Section --- */
+.technical-skills-section {
+    padding: 4rem 5%;
+    background: #f8f8f8;
+    color: #000;
+    min-height: 80vh;
+}
+
+.technical-skills-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.technical-skills-nav h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.technical-skills-nav .nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.technical-skills-nav .nav-btn {
+    background: #e0e0e0;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.technical-skills-nav .nav-btn:hover {
+    background: #d0d0d0;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    scroll-behavior: smooth;
+}
+
+/* Card styling for Technical Skills */
+.technical-skills-section .card {
+    flex: 0 0 auto;
+    width: 280px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.technical-skills-section .card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.technical-skills-section .card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #222;
+}
+
+.technical-skills-section .card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.technical-skills-section .card img {
+    max-width: 80px;
+    height: auto;
+}
+
+/* --- Technologies Section --- */
+.technologies-section {
+    padding: 4rem 5%;
+    background: linear-gradient(#111, #222);
+    color: #fff;
+    text-align: center;
+}
+
+.technologies-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tech-grid img {
+    max-width: 80px;
+    height: auto;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s ease;
+}
+
+.tech-grid img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* --- Tools Section --- */
+.tools-section {
+    padding: 4rem 5%;
+    background: #f8f8f8;
+    color: #000;
+    text-align: center;
+}
+
+.tools-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tools-grid img {
+    max-width: 80px;
+    height: auto;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
+    transition: transform 0.2s ease;
+}
+
+.tools-grid img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-body .hero .hero-text {
+        margin-top: 3rem;
+    }
+    .skills-body .hero h1 {
+        font-size: 2.8rem;
+    }
+    .skills-body .hero h2 {
+        font-size: 1.4rem;
+    }
+    .technical-skills-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .technical-skills-nav .nav-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .cards-container {
+        justify-content: center;
+    }
+    .technical-skills-section .card {
+        width: 90%;
+        max-width: 300px;
+    }
+    .tech-grid, .tools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 1rem;
+    }
+    .skills-body footer .contact,
+    .skills-body footer .footer-links {
+        flex-basis: 100%;
+        text-align: left;
+    }
+    .skills-body footer .footer-links span {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+}

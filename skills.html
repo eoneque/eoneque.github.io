@@ -6,39 +6,108 @@
     <title>Skills</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script defer src="script.js"></script>
+    <script defer src="/script.js"></script>
 </head>
+<body class="skills-body">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">About Me</a></li>
+                <li><a href="/skills.html" class="active">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<body>
- <header>
-    <nav class="navbar">
-      <ul>
-        <li><a href="/index.html">About Me</a></li>
-        <li><a href="/skills.html">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-    </nav>
-  </header>
- <!-- Contact Section -->
-  <footer id="contact" class="hidden">
-    <div class="contact">
-        <h3>CONTACT</h3>
-        <p>Email</p>
-        <p>concepcion.eonexander.04222003@gmail.com</p>
-        <p>Phone Number</p>
-        <p>(63)9617288253</p>
-    </div>
-    <div class="footer-links">
-        <h3>About Me</h3>
-        <span><a href="#skills">Skills</a></span>
-        <span><a href="#projects">Projects</a></span>
-        <span><a href="#">Experience</a></span>
-        <span><a href="#contact">Contact Me</a></span>
-    </div>
-    <p class="copyright">
-        © 2025 Eone Xander Concepcion. All rights reserved.
-    </p>
-</footer>   
+    <section class="hero">
+        <div class="hero-text">
+            <h1>SKILLS</h1> <h2>Technical Skills, Technologies and Tools</h2>
+            <p>
+                These are the skills and knowledge that I have learned throughout my
+                academic years.
+            </p>
+        </div>
+    </section>
+
+    <section id="technical-skills" class="technical-skills-section">
+        <div class="technical-skills-nav">
+            <h2>Technical Skills</h2>
+            <div class="nav-buttons">
+                <button class="nav-btn">Back</button>
+                <button class="nav-btn">Next</button>
+            </div>
+        </div>
+        <div class="cards-container">
+            <div class="card hidden">
+                <h3>UI/UX Designer</h3>
+                <p>Primarily use Figma to develop</p>
+                <img src="/images/icons/figma-icon.png" alt="UI/UX Icon"> </div>
+            <div class="card hidden">
+                <h3>Full-Stack Developer</h3>
+                <p>More proficient in backend develop (PHP, HTML, CSS)</p>
+                <img src="/images/icons/web-dev-icon.png" alt="Full-Stack Icon"> </div>
+            <div class="card hidden">
+                <h3>Mobile Development</h3>
+                <p>More proficient in cross-platform app develop with React, Python and Expo</p>
+                <img src="/images/icons/mobile-dev-icon.png" alt="Mobile Dev Icon"> </div>
+            <div class="card hidden">
+                <h3>Other Skills</h3>
+                <p>Git, Docker, Problem-Solving, Debugging</p>
+                <img src="/images/icons/other-skills-icon.png" alt="Other Skills Icon"> </div>
+            <div class="card hidden">
+                <h3>Other Skills</h3>
+                <p>Git, Docker, Problem-Solving, Debugging</p>
+                <img src="/images/icons/other-skills-icon.png" alt="Other Skills Icon"> </div>
+        </div>
+    </section>
+
+    <section id="technologies" class="technologies-section hidden">
+        <h2>TECHNOLOGIES</h2>
+        <div class="tech-grid">
+            <img src="/images/tech-icons/php.png" alt="PHP">
+            <img src="/images/tech-icons/html5.png" alt="HTML5">
+            <img src="/images/tech-icons/css3.png" alt="CSS3">
+            <img src="/images/tech-icons/python.png" alt="Python">
+            <img src="/images/tech-icons/react.png" alt="React">
+            <img src="/images/tech-icons/javascript.png" alt="JavaScript">
+            <img src="/images/tech-icons/csharp.png" alt="C#">
+            <img src="/images/tech-icons/github.png" alt="GitHub"> <img src="/images/tech-icons/mysql.png" alt="MySQL">
+            <img src="/images/tech-icons/firebase.png" alt="Firebase">
+        </div>
+    </section>
+
+    <section id="tools" class="tools-section hidden">
+        <h2>TOOLS</h2>
+        <div class="tools-grid">
+            <img src="/images/tool-icons/figma.png" alt="Figma">
+            <img src="/images/tool-icons/kivy.png" alt="Kivy">
+            <img src="/images/tool-icons/git.png" alt="Git"> <img src="/images/tool-icons/bootstrap.png" alt="Bootstrap">
+            <img src="/images/tool-icons/postman.png" alt="Postman">
+            <img src="/images/tool-icons/linux.png" alt="Linux">
+            <img src="/images/tool-icons/nextjs.png" alt="Next.js">
+            <img src="/images/tool-icons/visual-studio.png" alt="Visual Studio">
+            <img src="/images/tool-icons/vscode.png" alt="VS Code">
+        </div>
+    </section>
+
+    <footer id="contact" class="hidden">
+        <div class="contact">
+            <h3>CONTACT</h3>
+            <p>Email</p>
+            <p>concepcion.eonexander.04222003@gmail.com</p>
+            <p>Phone Number</p>
+            <p>(63)9617288253</p>
+        </div>
+        <div class="footer-links">
+            <h3>About Me</h3> <span><a href="/index.html">About Me</a></span>
+            <span><a href="/skills.html">Skills</a></span>
+            <span><a href="#projects">Projects</a></span>
+            <span><a href="#contact">Contact Me</a></span>
+        </div>
+        <p class="copyright">
+            © 2025 Eone Xander Concepcion. All rights reserved.
+        </p>
+    </footer>
 </body>
 </html>
