@@ -591,3 +591,198 @@ footer .copyright {
         margin-right: 1rem;
     }
 }
+
+/* --- Global Animation Keyframes --- */
+@keyframes navBarDropIn {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes heroTextSlideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sectionFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+/* ---------------------------------------------------- */
+/* --- PAGE LOAD & SCROLL-REVEAL ANIMATIONS (FIXED) --- */
+/* ---------------------------------------------------- */
+
+/* --- ON-LOAD ANIMATIONS (For elements visible on initial screen) --- */
+
+/* 1. Navbar: Drops in on load */
+.navbar {
+    opacity: 0; 
+    animation: navBarDropIn 0.5s ease-out 0.1s forwards; 
+}
+
+/* 2. Hero Text: Slides up on load */
+.hero-text {
+    opacity: 0; 
+    animation: heroTextSlideUp 0.6s ease-out 0.4s forwards; 
+}
+
+
+/* --- SCROLL-REVEAL INITIAL/SHOW STATES --- */
+
+/* Initial State for Hidden Elements (The animation starts here) */
+/* This now applies to #about, #portfolio, and footer (assuming they have class="hidden") */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly below for slide-up reveal */
+    
+    /* Transition applied to both opacity and transform */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out; 
+}
+
+/* Triggered by JS when observed (The animation ends here) */
+.hidden.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Staggered Card Animation (Scroll-Reveal) --- */
+/* Base style for cards (to ensure they start hidden when their parent section enters view) */
+.portfolio .cards .card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease-out; /* Match main transition */
+}
+
+/* Triggered by JS when the parent .portfolio.show is visible */
+.portfolio.show .cards .card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delay for Cards */
+/* Note: For this to work, the cards themselves must have the 'hidden' class removed, 
+   but their parent (.portfolio) must have 'hidden'. The JavaScript will handle this.
+   Since the cards are immediate children, they receive the .show when their parent does.
+   The transition delay is what staggers them. */
+.portfolio.show .cards .card:nth-child(1) { transition-delay: 0.1s; }
+.portfolio.show .cards .card:nth-child(2) { transition-delay: 0.3s; }
+.portfolio.show .cards .card:nth-child(3) { transition-delay: 0.5s; }
+
+
+/* ----------------------------- */
+/* --- MODAL STYLES (PRESERVED) --- */
+/* ----------------------------- */
+
+/* --- MODAL STYLES (Container) --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center; 
+    align-items: center;     
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* --- Modal Content/Box (The Popup) --- */
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%; 
+    max-width: 800px; 
+    max-height: 600px;
+    border-radius: 8px;
+    color: #333;
+    position: relative;
+    animation: fadeIn 0.3s;
+    display: flex; 
+    gap: 30px; 
+    overflow: hidden; 
+}
+
+/* --- Image Column (Left Side) --- */
+.modal-image-col {
+    flex: 1; 
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 20px; /* Internal padding to shrink the visible image area */
+    background-color: #ededed;
+}
+
+/* --- Rotating Images within the Image Column --- */
+.modal-image-col img {
+    position: absolute; 
+    width: auto; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: scale-down; 
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* --- Active Image State --- */
+.modal-image-col img.active {
+    opacity: 1;
+}
+
+/* --- Text Column (Right Side) --- */
+.modal-text-col {
+    flex: 2; 
+    overflow-y: auto;
+    padding: 10px 0; 
+}
+
+.modal-text-col h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em; 
+    color: #333; 
+}
+
+.modal-text-col p {
+    /* DETAILS READABILITY FIXES */
+    max-width: 65ch; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    text-align: justify;
+}
+
+/* --- Close Button --- */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 101;
+    color: #333; 
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.cards-container .card {
+    cursor: pointer;
+}
