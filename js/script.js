@@ -1,4 +1,53 @@
-// Function to handle the smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", () => {
+  const hiddenElements = document.querySelectorAll('.hidden');
+  const navbar = document.querySelector('.navbar');
+  const heroSection = document.querySelector('.hero');
+
+  const heroObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) navbar.classList.remove('scrolled');
+      else navbar.classList.add('scrolled');
+    });
+  }, { threshold: 0.5 });
+
+  if (heroSection) heroObserver.observe(heroSection);
+
+  const elementObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.1 });
+
+  hiddenElements.forEach(el => elementObserver.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector('.navbar');
+
+  // Trigger the fade/slide-in on load
+  requestAnimationFrame(() => {
+    navbar.classList.add('loaded');
+  });
+});
+
+// === Start of Skill Cards Scroll Navigation ===
+const cardsContainer = document.querySelector('.cards-container');
+const navButtons = document.querySelectorAll('.technical-skills-nav .nav-btn');
+
+if (cardsContainer && navButtons.length === 2) {
+  const scrollAmount = 300; // pixels per click (adjust as you like)
+
+  navButtons[0].addEventListener('click', () => {
+    cardsContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  navButtons[1].addEventListener('click', () => {
+    cardsContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+}
+// === End of Skill Cards Scroll Navigation ===
+
+// Function to handle the smooth scrolling for navigation links (e.g., #contact)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
@@ -11,81 +60,81 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Select the navbar and the sections to observe
 const navbar = document.querySelector('.navbar');
 const heroSection = document.querySelector('.hero');
-// IMPORTANT: hiddenElements now only selects elements that should *not* animate on load
+// Select all elements that should animate on scroll (e.g., #about, #skills, footer)
 const hiddenElements = document.querySelectorAll('.hidden'); 
 
 // === Start of Intersection Observer for Navbar Color ===
-// This part is for the color change based on the hero section.
+// This part changes navbar color/background based on the hero section visibility.
 if (heroSection) {
     const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // When in the hero section, remove 'scrolled' class
                 navbar.classList.remove('scrolled');
             } else {
+                // When outside the hero section, add 'scrolled' class
                 navbar.classList.add('scrolled');
             }
         });
     }, {
         root: null,
-        threshold: 0.5,
+        threshold: 0.5, // Trigger when 50% of the hero section is out of view
     });
     heroObserver.observe(heroSection);
 }
 // === End of Intersection Observer for Navbar Color ===
 
+// === Start of Scroll Reveal Logic (for .hidden elements) ===
 // Function to handle the intersection of other hidden elements (scroll reveal)
 const elementObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-            // Optional: unobserve after showing once
+            // Optional: uncomment below to make it animate only once
             // elementObserver.unobserve(entry.target); 
         } else {
-            entry.target.classList.remove('show');
+            // Optional: uncomment below to reset the animation when scrolling back up
+            // entry.target.classList.remove('show');
         }
     });
 }, {
     root: null,
-    threshold: 0.1,
+    threshold: 0.1, // Trigger when 10% of the element is visible
 });
 
-// Start observing all hidden elements if they exist
+// Start observing all elements with the 'hidden' class
 hiddenElements.forEach(element => {
     elementObserver.observe(element);
 });
-
-// === Start of Skills Page Specific Code (Card Scrolling) ===
-const cardsContainer = document.querySelector('.cards-container');
-const backButton = document.querySelector('.technical-skills-nav .nav-btn:first-child');
-const nextButton = document.querySelector('.technical-skills-nav .nav-btn:last-child');
-
-if (cardsContainer && backButton && nextButton) {
-    const scrollDistance = 400;
-
-    nextButton.addEventListener('click', () => {
-        cardsContainer.scrollLeft += scrollDistance;
-    });
-
-    backButton.addEventListener('click', () => {
-        cardsContainer.scrollLeft -= scrollDistance;
-    });
-}
-// === End of Skills Page Specific Code (Card Scrolling) ===
+// === End of Scroll Reveal Logic ===
 
 // === Start of Hide/Show on Scroll for Navbar ===
 let lastScrollY = window.scrollY;
+const hideThreshold = 100; // Define the scroll point where hiding begins
+const bottomThreshold = 150; // Distance (in px) from bottom to re-show navbar
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+    const currentScrollY = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const distanceFromBottom = scrollHeight - (currentScrollY + windowHeight);
+
+    // Hide navbar when scrolling down AND past the threshold
+    if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) {
         navbar.classList.add('hidden-on-scroll');
-    } else {
+    }
+    // Show navbar when near the bottom OR scrolling up
+    else if (currentScrollY < lastScrollY || distanceFromBottom < bottomThreshold) {
         navbar.classList.remove('hidden-on-scroll');
     }
-    lastScrollY = window.scrollY;
+
+    // Update last scroll position
+    lastScrollY = currentScrollY;
 });
 // === End of Hide/Show on Scroll for Navbar ===
 
-// Technical Skills Data
+
+// Technical Skills Data (Needed for the modal)
 const SKILLS_DATA = [
     { 
         id: 1, 
@@ -98,8 +147,8 @@ const SKILLS_DATA = [
     },
     { 
         id: 2, 
-        title: 'Full-Stack Developer', 
-        details: 'Strong foundation in Full-Stack Development with hands-on experience as the <b>lead developer</b> in multiple academic projects and thesis systems.Proficient in designing and implementing both frontend and backend solutions with the use of my preffered languages <b>PHP</b>, <b>HTML</b> and <b>CSS</b>. I use PHP to build robust backend functionality, while leveraging HTML and CSS to create clean, responsive, and user-friendly interfaces.<br><br> Adept at collaborating within teams, troubleshooting complex bugs, and delivering complete end-to-end systems.', 
+        title: 'Full-Stack Web Developer', 
+        details: 'Strong foundation in Full-Stack Development with hands-on experience as the <b>lead developer</b> in multiple academic projects and thesis systems.Proficient in designing and implementing both frontend and backend solutions with the use of my preffered languages <b>PHP</b>, <b>HTML</b> and <b>CSS</b>. I use PHP to build robust backend functionality, while leveraging HTML and CSS to create clean, responsive, and user-friendly interfaces.<br><br> Adept at collaborating within teams, troubleshooting complex bugs, and delivering complete end-to-end systems. While these are my favored technologies, I am always eager to learn and adapt to new tools and frameworks as needed. For instance, I am also proficient in Javascript frameworks like React and Next.js and Node.js for web development.', 
         tools: [
             '/assests/images/tech-icons/php.png',
             '/assests/images/tech-icons/html.png',
@@ -118,7 +167,7 @@ const SKILLS_DATA = [
     },
     { 
         id: 4, 
-        title: 'Desktop Development',
+        title: 'Software Development',
         details: 'Proficient in developing desktop applications using C++ and C# for robust and efficient system tools and software solutions.', 
         tools: [
             '/assests/images/tech-icons/csharp.png',
@@ -143,13 +192,14 @@ const SKILLS_DATA = [
     }
 ];
 
-// === Start of Modal Logic with Image Rotation ===
+// === Start of Modal Logic with Image Rotation (Needed for the skills page cards) ===
 let imageInterval; // Global variable to hold the rotation timer
 
 const modal = document.getElementById("skill-modal");
 const imageCol = document.getElementById("modal-image-col");
 const closeBtn = document.querySelector(".close-btn");
-const skillCards = document.querySelectorAll('.cards-container .card');
+// Note: This targets cards in the .cards-container, which might only exist on the skills page
+const skillCards = document.querySelectorAll('.cards-container .card'); 
 const modalSummary = document.getElementById('modal-summary'); 
 
 /**
@@ -187,40 +237,48 @@ function cycleImages(imagesArray) {
     }
 }
 
-skillCards.forEach((card, index) => {
-    card.setAttribute('data-skill-id', index + 1);
+// Only run the card click listeners if cards exist on the page
+if (skillCards.length > 0) {
+    skillCards.forEach((card, index) => {
+        card.setAttribute('data-skill-id', index + 1);
 
-    card.addEventListener('click', () => {
-        const skillId = card.getAttribute('data-skill-id');
-        const skillData = SKILLS_DATA.find(skill => skill.id === parseInt(skillId));
+        card.addEventListener('click', () => {
+            const skillId = card.getAttribute('data-skill-id');
+            const skillData = SKILLS_DATA.find(skill => skill.id === parseInt(skillId));
 
-        if (skillData) {
-            // Populate the modal with data
-            document.getElementById('modal-title').textContent = skillData.title;
-            if (modalSummary) {
-                modalSummary.textContent = ''; 
+            if (skillData) {
+                // Populate the modal with data
+                document.getElementById('modal-title').textContent = skillData.title;
+                if (modalSummary) {
+                    modalSummary.textContent = ''; 
+                }
+                
+                // Use innerHTML to render bold tags (<b>) and line breaks (<br>)
+                document.getElementById('modal-details').innerHTML = skillData.details;
+
+                // Start the image cycling
+                cycleImages(skillData.tools);
+
+                // Display the modal
+                modal.style.display = "flex";
             }
-            
-            // Use innerHTML to render bold tags (<b>) and line breaks (<br>)
-            document.getElementById('modal-details').innerHTML = skillData.details;
-
-            // Start the image cycling
-            cycleImages(skillData.tools);
-
-            // Display the modal
-            modal.style.display = "flex";
-        }
+        });
     });
-});
+}
+
 
 // Function to close the modal
 const closeModal = () => {
-    modal.style.display = "none";
-    clearInterval(imageInterval); // STOP the image rotation when modal closes!
+    if(modal) {
+        modal.style.display = "none";
+        clearInterval(imageInterval); // STOP the image rotation when modal closes!
+    }
 };
 
 // Close the modal when the user clicks on (x)
-closeBtn.onclick = closeModal;
+if(closeBtn) {
+    closeBtn.onclick = closeModal;
+}
 
 // Close the modal when the user clicks anywhere outside of the modal
 window.onclick = function(event) {

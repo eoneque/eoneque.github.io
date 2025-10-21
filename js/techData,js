@@ -1,0 +1,64 @@
+// techData.js
+
+export const TECH_DATA = [
+    {
+        name: 'PHP',
+        years: '4 Years',
+        projects: 'Thesis Management System (Full-Stack), E-Commerce Platform, Multiple Academic Systems',
+        icon: '/assests/images/tech-icons/php.png'
+    },
+    {
+        name: 'HTML5',
+        years: '5+ Years',
+        projects: 'All Web Projects, Portfolio Site, Client Landing Pages',
+        icon: '/assests/images/tech-icons/html.png'
+    },
+    {
+        name: 'CSS3',
+        years: '5+ Years',
+        projects: 'All Web Projects, Portfolio Site (including scroll animations), UI Theming',
+        icon: '/assests/images/tech-icons/css.png'
+    },
+    {
+        name: 'Python',
+        years: '3 Years',
+        projects: 'Thesis Mobile Backend, Data Analysis Scripts, Flask/Django Prototypes',
+        icon: '/assests/images/tech-icons/python.png'
+    },
+    {
+        name: 'React',
+        years: '2 Years',
+        projects: 'Cross-Platform Mobile Apps (React Native), Frontend Web Components',
+        icon: '/assests/images/tech-icons/react.png'
+    },
+    {
+        name: 'JavaScript',
+        years: '4 Years',
+        projects: 'Frontend Interactivity, Scroll Logic, Full-Stack (Node.js)',
+        icon: '/assests/images/tech-icons/javascript.png'
+    },
+    {
+        name: 'C#',
+        years: '2 Years',
+        projects: 'Desktop Inventory System, Simple Game Prototypes',
+        icon: '/assests/images/tech-icons/csharp.png'
+    },
+    {
+        name: 'MySQL',
+        years: '4 Years',
+        projects: 'Thesis Databases, Web Application Data Storage',
+        icon: '/assests/images/tech-icons/mysql.png'
+    },
+    {
+        name: 'Firebase',
+        years: '1 Year',
+        projects: 'Real-time Chat Feature, Authentication Services',
+        icon: '/assests/images/tech-icons/firebase.png'
+    },
+    {
+        name: 'Supabase',
+        years: '1 Year',
+        projects: 'Mobile Application Backend and Database (Cloud-based)',
+        icon: '/assests/images/tech-icons/supabase.png'
+    }
+];
