@@ -10,35 +10,61 @@
 </head>
 
 <body>
-<header>
-    <nav class="navbar">
-      <ul>
-        <li><a href="/index.html">About Me</a></li>
-        <li><a href="/skills.html">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-    </nav>
-  </header>
- <!-- Contact Section -->
-  <footer id="contact" class="hidden">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">About Me</a></li>
+                <li><a href="/skills.html">Skills</a></li>
+                <!-- <li><a href="/projects.html">Projects</a></li> -->
+                <li><a href="/contact.html" class="active">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section id="contact-page" class="contact-page">
+        <div class="contact-container">
+            <div class="contact-details">
+                <h1>CONTACT</h1>
+                <p class="subtitle">Let me know you're interested</p>
+                <p class="info-text">concepcion.eonexander.04222003@gmail.com</p>
+                <p class="info-text">63+ 961728853</p>
+            </div>
+
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name">
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Message"></textarea>
+                    
+                    <button type="submit" class="send-button">SEND</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<footer id="contact" class="hidden">
     <div class="contact">
-       <h3><b>CONTACT</b></h3>
+        <h3>CONTACT</h3>
         <p><b>Email</b></p>
         <p>concepcion.eonexander.04222003@gmail.com</p>
         <p><b>Phone Number</b></p>
         <p>(63)9617288253</p>
     </div>
     <div class="footer-links">
-        <h3>About Me</h3>
-        <span><a href="#skills">Skills</a></span>
-        <span><a href="#projects">Projects</a></span>
-        <span><a href="#">Experience</a></span>
-        <span><a href="#contact">Contact Me</a></span>
+        <h3>Contact Me</h3>
+        <span><a href="/index.html">About Me</a></span>
+        <!-- <span><a href="/projects.html">Projects</a></span> -->
+        <span><a href="/skills.html">Skills</a></span>
     </div>
     <p class="copyright">
         © 2025 Eone Xander Concepcion. All rights reserved.
     </p>
-</footer>   
+</footer>
 </body>
 </html>
